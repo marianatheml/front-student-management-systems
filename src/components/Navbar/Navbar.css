@@ -11,7 +11,8 @@ a {
 .nav {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 0 4rem;
     height: 8vh;
     background: #00E88F;
 }
