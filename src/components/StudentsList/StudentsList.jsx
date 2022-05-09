@@ -1,8 +1,11 @@
-import * as React from 'react';
+import React from 'react'
 import "./StudentsList.css"
+import { GET_ALL_STUDENTS } from '../../graphql/Query'
 import { TextField } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 import * as FaIcons from "react-icons/fa";
+import { useQuery } from '@apollo/client';
+import Loading from '../Loading/Loading';
 
 
 const columns = [
@@ -12,19 +15,12 @@ const columns = [
     { field: 'email', headerName: 'E-mail', width: 300 }
 ];
 
-const rows = [
-    { id: 1, name: 'Snow', cpf: '00000000000', email: 'Snow@rmail.com' },
-    { id: 2, name: 'Lannister', cpf: '00000000000', email: 'Lannister@rmail.com' },
-    { id: 3, name: 'Lannister', cpf: '00000000000', email: 'Lannister@rmail.com' },
-    { id: 4, name: 'Stark', cpf: '00000000000', email: 'Stark@rmail.com' },
-    { id: 5, name: 'Targaryen', cpf: '00000000000', email: 'Targaryen@rmail.com' },
-    { id: 6, name: 'Melisandre', cpf: '00000000000', email: 'Melisandre@rmail.com' },
-    { id: 7, name: 'Clifford', cpf: '00000000000', email: 'Clifford@rmail.com' },
-    { id: 8, name: 'Frances', cpf: '00000000000', email: 'Frances@rmail.com' },
-    { id: 9, name: 'Roxie', cpf: '00000000000', email: 'Roxie@rmail.com' },
-];
+function StudentsList() {
+    const { data, loading } = useQuery(GET_ALL_STUDENTS)
+    if (loading) return <Loading />;
 
-export default function DataTable() {
+    const rows = data.getStudents;
+
     return (
         <div>
             <div className='students_table_header'>
@@ -47,3 +43,5 @@ export default function DataTable() {
         </div>
     );
 }
+
+export default StudentsList;
