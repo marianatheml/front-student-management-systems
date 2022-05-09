@@ -94,7 +94,7 @@ a {
     transform: translateX(0%);
 }
 
-.register_title {
+.modal_title {
     margin-bottom: 1rem;
 }
 
@@ -106,19 +106,19 @@ a {
     font-size: 0.8rem;
 }
 
-.register_fields {
+.modal_fields {
     display: flex;
     gap: 1rem;
     flex-direction: column;
     justify-content: center;
 }
 
-.register_button {
+.modal_button {
     margin: 2rem 0 0;
     width: 100%;
 }
 
-.register_button button {
+.modal_button button {
     width: 100%;
     font-size: 1rem;
     font-weight: bolder;
@@ -129,7 +129,7 @@ a {
     padding: 0.5rem 0;
 }
 
-.register_button button:hover {
+.modal_button button:hover {
 
     transition: 0.3s;
     cursor: pointer;
