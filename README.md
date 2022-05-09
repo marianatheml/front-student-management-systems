@@ -42,3 +42,6 @@ Eexecute como descrito abaixo para iniciar a aplicação:
 ```bash
     npm start
 ```
+
+<h2>Observações</h2>
+Para execução completa e melhor aproveitamento da aplicação, lembre-se de estar rodando o back-end, que pode ser encontrado no repositório <a href="https://github.com/marianatheml/student-management-systems">student-management-systems</a> com a descrição de como inicializa-lo corretamente no README.md no mesmo.
