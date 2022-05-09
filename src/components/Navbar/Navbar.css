@@ -82,7 +82,7 @@ a {
         top: 5vh;
         padding: 1rem;
         right: 0;
-        width: 30vw;
+        width: 100vw;
         background: #00E88F;
         flex-direction: column;
         transform: translateX(100%);

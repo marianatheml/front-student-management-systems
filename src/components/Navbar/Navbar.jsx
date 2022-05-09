@@ -50,11 +50,6 @@ function Navbar() {
                         Início
                     </a>
                 </li>
-                <li className="nav_item">
-                    <a href="/">
-                        Contato
-                    </a>
-                </li>
                 <li className="nav_item_add">
                     <button onClick={handleOpen}>
                         +
