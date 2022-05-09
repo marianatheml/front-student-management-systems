@@ -25,7 +25,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    gap: 3rem;
+    gap: 2rem;
 }
 
 .nav_item a {
@@ -37,15 +37,20 @@ a {
     color: rgba(0, 0, 0, 1);
 }
 
-.nav_item_add a {
+.nav_item_add button {
+    font-size: 1rem;
+    font-weight: bolder;
+    border: 0;
     background-color: rgba(255, 255, 255, 0.4);
     color: rgba(0, 0, 0, 0.65);
     border-radius: 5rem;
-    padding: 0.2rem 0.7rem;
+    padding: 0.4rem 0.7rem;
 }
 
-.nav_item_add a:hover {
+.nav_item_add button:hover {
+
     transition: 0.3s;
+    cursor: pointer;
     color: rgba(0, 0, 0, 1);
     background-color: rgba(255, 255, 255, 0.99);
 }
@@ -84,7 +89,49 @@ a {
     }
 }
 
-/* Active Class */
 .nav_active {
     transform: translateX(0%);
+}
+
+.register_title {
+    margin-bottom: 1rem;
+}
+
+#modal-modal-title {
+    font-weight: bolder;
+}
+
+#modal-modal-description {
+    font-size: 0.8rem;
+}
+
+.register_fields {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.register_button {
+    margin: 2rem 0 0;
+    width: 100%;
+}
+
+.register_button button {
+    width: 100%;
+    font-size: 1rem;
+    font-weight: bolder;
+    border: 0.2rem solid #00E88F;;
+    background-color: #00E88F;
+    color: rgba(0, 0, 0, 0.75);
+    border-radius: 5rem;
+    padding: 0.5rem 0;
+}
+
+.register_button button:hover {
+
+    transition: 0.3s;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 1);
+    background-color: rgba(255, 255, 255, 0.99);
 }
