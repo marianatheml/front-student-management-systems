@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import './Navbar.css'
+import { CREATE_STUDENT } from "../../graphql/Mutation"
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import * as FaIcons from "react-icons/fa";
 import { TextField } from "@mui/material";
+import { useMutation } from "@apollo/client";
+import Loading from "../Loading/Loading";
 
 const style = {
     position: 'absolute',
@@ -28,6 +31,13 @@ function Navbar() {
             setActive("nav_menu nav_active");
         } else setActive("nav_menu");
     };
+
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [cpf, setCpf] = useState("");
+
+    const [createStudent, { error }, loading] = useMutation(CREATE_STUDENT);
+    if (loading) return <Loading />;
 
     return (
         <nav className="nav">
@@ -70,12 +80,26 @@ function Navbar() {
                         </Typography>
                     </div>
                     <div className="register_fields">
-                        <TextField label="Nome" variant="standard" />
-                        <TextField label="E-mail" variant="standard" />
-                        <TextField label="CPF" variant="standard" />
+                        <TextField label="Nome" variant="standard" onChange={(event) => {
+                            setName(event.target.value);
+                        }} />
+                        <TextField label="E-mail" variant="standard" onChange={(event) => {
+                            setEmail(event.target.value);
+                        }} />
+                        <TextField label="CPF" variant="standard" onChange={(event) => {
+                            setCpf(event.target.value);
+                        }} />
                     </div>
                     <div className="register_button">
-                        <button>Cadastrar</button>
+                        <button onClick={() => {
+                            createStudent({
+                                variables: {
+                                    name: name,
+                                    cpf: cpf,
+                                    email: email,
+                                },
+                            }).then(window.location.reload());
+                        }}>Cadastrar</button>
                     </div>
                 </Box>
             </Modal>

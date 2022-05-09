@@ -38,13 +38,13 @@ a {
 }
 
 .nav_item_add button {
-    font-size: 1rem;
+    font-size: 1.8rem;
     font-weight: bolder;
     border: 0;
     background-color: rgba(255, 255, 255, 0.4);
     color: rgba(0, 0, 0, 0.65);
     border-radius: 5rem;
-    padding: 0.4rem 0.7rem;
+    padding: 0.1rem 0.6rem;
 }
 
 .nav_item_add button:hover {
@@ -78,6 +78,7 @@ a {
 
     .nav_menu {
         position: fixed;
+        z-index: 1;
         top: 5vh;
         padding: 1rem;
         right: 0;
