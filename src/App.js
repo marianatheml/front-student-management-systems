@@ -1,9 +1,13 @@
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
+import StudentsList from './components/StudentsList/StudentsList'
 
 function App() {
   return (
-    <Navbar />
+    <div>
+      <Navbar />
+      <StudentsList />
+    </div>
   );
 }
 
