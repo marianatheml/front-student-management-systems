@@ -19,6 +19,7 @@ a {
 
 .nav_logo {
     text-transform: uppercase;
+    letter-spacing: 0.1rem;
 }
 
 .nav_menu {
@@ -29,7 +30,8 @@ a {
 }
 
 .nav_item a {
-    color: rgba(0, 0, 0, 0.65);
+    color: rgba(0, 0, 0, 0.75);
+    letter-spacing: 0.1rem;
 }
 
 .nav_item a:hover {
@@ -38,11 +40,11 @@ a {
 }
 
 .nav_item_add button {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: bolder;
     border: 0;
     background-color: rgba(255, 255, 255, 0.4);
-    color: rgba(0, 0, 0, 0.65);
+    color: rgba(0, 0, 0, 0.75);
     border-radius: 5rem;
     padding: 0.1rem 0.6rem;
 }

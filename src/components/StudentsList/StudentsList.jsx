@@ -1,12 +1,32 @@
 import React from 'react'
 import "./StudentsList.css"
 import { GET_ALL_STUDENTS } from '../../graphql/Query'
-import { TextField } from '@mui/material';
-import { DataGrid } from '@mui/x-data-grid';
-import * as FaIcons from "react-icons/fa";
+import {
+    DataGrid,
+    ptBR,
+    GridToolbarContainer,
+    GridToolbarColumnsButton,
+    GridToolbarFilterButton,
+    GridToolbarExport
+} from '@mui/x-data-grid';
 import { useQuery } from '@apollo/client';
 import Loading from '../Loading/Loading';
+import Error from '../Error/Error';
 
+
+const CustomToolbar = () => {
+    return (
+        <GridToolbarContainer className="grid-toolbar">
+            <div>
+                <GridToolbarColumnsButton sx={{ color: "#2e7d32" }} />
+                <GridToolbarFilterButton sx={{ color: "#2e7d32" }} />
+            </div>
+            <div>
+                <GridToolbarExport sx={{ color: "#2e7d32" }} />
+            </div>
+        </GridToolbarContainer>
+    );
+}
 
 const columns = [
     { field: 'id', headerName: 'ID', width: 100 },
@@ -16,31 +36,24 @@ const columns = [
 ];
 
 function StudentsList() {
-    const { data, loading } = useQuery(GET_ALL_STUDENTS)
+    const { data, error, loading } = useQuery(GET_ALL_STUDENTS)
     if (loading) return <Loading />;
+    if (error) return <Error />;
 
     const rows = data.getStudents;
 
     return (
-        <div>
-            <div className='students_table_header'>
-                <div className='students_table_title'>
-                    <h5>Lista de Estudantes</h5>
-                </div>
-                <div className='students_table_search'>
-                    <TextField id="standard-basic" label="Buscar" variant="standard" />
-                    <a href='/'><FaIcons.FaSearch /></a>
-                </div>
-            </div>
-            <div className='students_table'>
-                <DataGrid
-                    rows={rows}
-                    columns={columns}
-                    pageSize={6}
-                    rowsPerPageOptions={[6]}
-                />
-            </div>
+
+        <div className='students_table'>
+            <DataGrid
+                rows={rows}
+                columns={columns}
+                pageSize={7}
+                rowsPerPageOptions={[7]}
+                components={{ Toolbar: CustomToolbar }}
+                localeText={ptBR.components.MuiDataGrid.defaultProps.localeText} />
         </div>
+
     );
 }
 
